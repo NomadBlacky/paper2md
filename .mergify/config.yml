@@ -1,0 +1,16 @@
+pull_request_rules:
+  - name: assign and label scala-steward's PRs
+    conditions:
+      - author=scala-steward
+    actions:
+      assign:
+        users: [NomadBlacky]
+      label:
+        add: [dependency]
+  - name: merge scala-steward's PRs
+    conditions:
+      - author=scala-steward
+      - status-success=sbt_tasks
+    actions:
+      merge:
+        method: squash
